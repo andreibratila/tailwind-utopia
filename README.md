@@ -48,7 +48,17 @@ with flags if you want to read de config file
 npx tailwind-utopia generate configPath=./src/configs
 ```
 
-3. Start using fluid utilities in your HTML:
+3. Import the css file in your tailwind css file:
+
+```
+example: global.css
+
+@import "tailwindcss";
+@import "./tailwind-utopia.css";
+... other css files / configurations
+```
+
+4. Start using fluid utilities in your HTML:
 
 ```
 <h1 class="text-fs-2xl mb-fs-l">
