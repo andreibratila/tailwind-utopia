@@ -24,10 +24,19 @@ npm install -g @andreibratila/tailwind-utopia
 ```
 ## Quick Start
 
-2. Use the CLI to generate a config file:
-
-bash
+1. Use the CLI to generate a config file:
+```
 npx tailwind-utopia config
+```
+I recomend use prefix in configFile example: fs-
+2. Create the css
+``` 
+npx tailwind-utopia generate
+```
+with flags if you want to read de config file 
+```
+npx tailwind-utopia generate configPath=./src/configs
+```
 
 3. Start using fluid utilities in your HTML:
 
@@ -142,7 +151,7 @@ MIT License - see [LICENSE.md](LICENSE.md) for details.
 
 ## Credits
 
-This project was created by [Andrei Florian Brătila](https://github.com/andreibratila) and maintained by the open-source community.  
+This project was created by [Andrei Florian Brătila](https://github.com/andreibratila)(https://andreiflorianbratila.dev) and maintained by the open-source community.  
 Inspired by [Utopia](https://utopia.fyi/), a methodology for fluid responsive design.
 
 Special thanks to all contributors who helped improve this plugin. If you’d like to contribute, check out our [CONTRIBUTING.md](CONTRIBUTING.md).
