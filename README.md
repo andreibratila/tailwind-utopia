@@ -127,17 +127,17 @@ The plugin includes a CLI with the following commands:
 bash
 
 # Generate configuration file
-
+```
 npx tailwind-utopia config
-
+```
 # Generate CSS file
-
+```
 npx tailwind-utopia generate
-
+```
 # Display help
-
+```
 npx tailwind-utopia --help
-
+```
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
