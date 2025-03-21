@@ -50,47 +50,46 @@ The typography scale is defined by:
 
 Example configuration:
 
-javascript
+```
+json
 {
-"utopia": {
-"minWidth": 320,
-"maxWidth": 1240,
-"minSize": 16,
-"maxSize": 20,
-"minScale": 1.2,
-"maxScale": 1.333,
-"baseKey": "base",
-"fontSize": {
-"xs": { "min": 12, "max": 14 },
-"sm": { "min": 14, "max": 16 },
-"base": { "min": 16, "max": 20 },
-"lg": { "min": 18, "max": 24 },
-"xl": { "min": 20, "max": 28 },
-"2xl": { "min": 24, "max": 36 },
-"3xl": { "min": 30, "max": 48 },
-"4xl": { "min": 36, "max": 64 }
+  "prefix": "",
+  "baseKey": "base",
+  "utopia": {
+    "minWidth": 320,
+    "minSize": 21,
+    "minScale": 1.2,
+    "maxWidth": 1140,
+    "maxSize": 24,
+    "maxScale": 1.25,
+    "fontSize": {
+      "xs": "inherit",
+      "sm": "inherit",
+      "base": 1.4,
+      "lg": 1.33,
+      "xl": 1.2,
+      "2xl": 1.11,
+      "3xl": 1,
+      "4xl": 1
+    },
+    "spacing": {
+      "3xs": 0.25,
+      "2xs": 0.5,
+      "xs": 0.75,
+      "sm": 1,
+      "md": 1.5,
+      "lg": 2,
+      "xl": 3,
+      "2xl": 4,
+      "3xl": 6
+    }
+  }
 }
-}
-}
-
+ 
+```
 ### Spacing Scale
 
 The spacing scale works similarly to typography, providing fluid values for margins, padding, and gaps:
-
-javascript
-{
-"spacing": {
-"3xs": 0.25,
-"2xs": 0.5,
-"xs": 0.75,
-"s": 1,
-"m": 1.5,
-"l": 2,
-"xl": 3,
-"2xl": 4,
-"3xl": 6
-}
-}
 
 ## Usage
 
