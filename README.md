@@ -34,8 +34,9 @@ npm install -g @andreibratila/tailwind-utopia
 npx tailwind-utopia config
 ```
 
-I recomend use prefix in configFile example: fs- 2. Create the css
+I recomend use prefix in configFile example: "fs-" 
 
+2. Create the css
 ```
 npx tailwind-utopia generate
 ```
