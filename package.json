@@ -7,6 +7,25 @@
   "bin": {
     "tailwind-utopia": "./bin/tailwind-utopia.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreibratila/tailwind-utopia"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "tailwindcss v4",
+    "utopia",
+    "typography",
+    "spacing",
+    "fluid"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
   "author": "Andrei Bratila",
   "contributors": [
     {
