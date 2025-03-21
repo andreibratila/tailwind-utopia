@@ -39,13 +39,11 @@ npx tailwind-utopia generate configPath=./src/configs
 ```
 
 3. Start using fluid utilities in your HTML:
-
-html
-
+```
 <h1 class="text-fs-2xl mb-fs-l">
   Fluid Typography
 </h1>
-
+```
 ## Configuration
 
 The plugin uses a configuration file (tailwind-utopia.config.json) to define your fluid typography and spacing scales. You can generate a default configuration using:
