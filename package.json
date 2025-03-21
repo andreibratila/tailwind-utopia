@@ -1,0 +1,22 @@
+{
+  "name": "@andreibratila/tailwind-utopia",
+  "version": "1.0.0",
+  "description": "A Tailwind CSS v4 plugin for fluid typography and spacing with Utopia",
+  "type": "module",
+  "bin": {
+    "tailwind-utopia": "./bin/tailwind-utopia.js"
+  },
+  "author": "Andrei Bratila",
+  "contributors": [
+    {
+      "name": "Andrei Bratila"
+    }
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "tailwindcss": "^4"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  }
+}
