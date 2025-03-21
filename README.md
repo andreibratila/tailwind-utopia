@@ -105,7 +105,8 @@ json
 The spacing scale works similarly to typography, providing fluid values for margins, padding, and gaps:
 
 ## Usage
-
+!!! IMPORTANT!!!
+I recomend create prefix always example: "fs-"
 ### Typography
 ```
 <h1 class="text-{prefix(optional}sm">Large Fluid Heading</h1>
