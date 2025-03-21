@@ -12,12 +12,16 @@ A Tailwind CSS library that implements Utopia's fluid responsive design methodol
 
 ## Installation
 
-bash
+Project instalation
+```
 npm install -D @andreibratila/tailwind-utopia
-
+```
 or
-bash install -g @andreibratila/tailwind-utopia
 
+Global instalation
+```
+npm install -g @andreibratila/tailwind-utopia
+```
 ## Quick Start
 
 2. Use the CLI to generate a config file:
