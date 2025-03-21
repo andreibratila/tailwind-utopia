@@ -34,9 +34,10 @@ npm install -g @andreibratila/tailwind-utopia
 npx tailwind-utopia config
 ```
 
-I recomend use prefix in configFile example: "fs-" 
+I recomend use prefix in configFile example: "fs-"
 
 2. Create the css
+
 ```
 npx tailwind-utopia generate
 ```
@@ -57,7 +58,7 @@ npx tailwind-utopia generate configPath=./src/configs
 
 ## Configuration
 
-The plugin uses a configuration file (tailwind-utopia.config.json) to define your fluid typography and spacing scales. You can generate a default configuration using:
+The library uses a configuration file (tailwind-utopia.config.json) to define your fluid typography and spacing scales. You can generate a default configuration using:
 
 bash
 npx tailwind-utopia config
@@ -138,9 +139,7 @@ I recomend create prefix always example: "fs-"
 
 ## CLI Commands
 
-The plugin includes a CLI with the following commands:
-
-bash
+The library includes a CLI with the following commands:
 
 # Generate configuration file
 
