@@ -1,4 +1,4 @@
-# Tailwindcss V4 Utopia Library 
+# Tailwindcss V4 Utopia Library
 
 A Tailwind CSS library that implements Utopia's fluid responsive design methodology, providing smooth, responsive typography and spacing without breakpoints.
 
@@ -13,37 +13,47 @@ A Tailwind CSS library that implements Utopia's fluid responsive design methodol
 ## Installation
 
 Project instalation
+
 ```
 npm install -D @andreibratila/tailwind-utopia
 ```
+
 or
 
 Global instalation
+
 ```
 npm install -g @andreibratila/tailwind-utopia
 ```
+
 ## Quick Start
 
 1. Use the CLI to generate a config file:
+
 ```
 npx tailwind-utopia config
 ```
-I recomend use prefix in configFile example: fs-
-2. Create the css
-``` 
+
+I recomend use prefix in configFile example: fs- 2. Create the css
+
+```
 npx tailwind-utopia generate
 ```
-with flags if you want to read de config file 
+
+with flags if you want to read de config file
+
 ```
 npx tailwind-utopia generate configPath=./src/configs
 ```
 
 3. Start using fluid utilities in your HTML:
+
 ```
 <h1 class="text-fs-2xl mb-fs-l">
   Fluid Typography
 </h1>
 ```
+
 ## Configuration
 
 The plugin uses a configuration file (tailwind-utopia.config.json) to define your fluid typography and spacing scales. You can generate a default configuration using:
@@ -96,28 +106,35 @@ json
     }
   }
 }
- 
+
 ```
+
 ### Spacing Scale
 
 The spacing scale works similarly to typography, providing fluid values for margins, padding, and gaps:
 
 ## Usage
+
 !!! IMPORTANT!!!
 I recomend create prefix always example: "fs-"
+
 ### Typography
+
 ```
 <h1 class="text-{prefix(optional}sm">Large Fluid Heading</h1>
 <p class="text-fs-sm">Body text that scales smoothly</p>
 <small class="text-sm">Smaller text</small>
 ```
+
 ### Spacing
+
 ```
 <div class="mb-{prefix(optional}xs">
   <h2 class="mb-fs-xs">Title</h2>
   <p class="mb-xs">Content</p>
 </div>
 ```
+
 ## CLI Commands
 
 The plugin includes a CLI with the following commands:
@@ -125,17 +142,23 @@ The plugin includes a CLI with the following commands:
 bash
 
 # Generate configuration file
+
 ```
 npx tailwind-utopia config
 ```
+
 # Generate CSS file
+
 ```
 npx tailwind-utopia generate
 ```
+
 # Display help
+
 ```
 npx tailwind-utopia --help
 ```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -146,8 +169,8 @@ MIT License - see [LICENSE.md](LICENSE.md) for details.
 
 ## Credits
 
-This project was created by [Andrei Florian Brătila](https://github.com/andreibratila)(https://andreiflorianbratila.dev) and maintained by the open-source community.  
-Inspired by [Utopia](https://utopia.fyi/), a methodology for fluid responsive design.
+This project was created by [Andrei Florian Brătila](https://github.com/andreibratila),[myWebsite](https://andreibratila.com).
+Inspired by [Utopia](https://utopia.fyi/), a methodology for fluid responsive design and @domchristie/tailwind-utopia plugin, [domchristie/tailwind-utopia](https://github.com/domchristie/tailwind-utopia).
 
 Special thanks to all contributors who helped improve this plugin. If you’d like to contribute, check out our [CONTRIBUTING.md](CONTRIBUTING.md).
 
