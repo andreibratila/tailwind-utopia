@@ -165,19 +165,21 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License - see [LICENSE.md](LICENSE.md) for details.
+MIT License - see [LICENSE](LICENSE.md) for details.
 
 ## Acknowledgements
 
 Inspired by [Utopia](https://utopia.fyi/), a methodology for fluid responsive design and @domchristie/tailwind-utopia plugin, [domchristie/tailwind-utopia](https://github.com/domchristie/tailwind-utopia).
 
+```
 Utopia: James Gilyead & Trys Mudford
 Original Tailwind Utopia plugin: Chris Pymm & CWS Digital
 Plugin I based my work on: Dom Christie
+```
 
 ## Credits
 
-This project was created by [Andrei Florian Brătila](https://github.com/andreibratila),[myWebsite](https://andreibratila.com).
+This project was created by [Andrei Florian Brătila](https://github.com/andreibratila), [andreiflorianbratila.com](https://andreibratila.com).
 
 Special thanks to all contributors who helped improve this library. If you’d like to contribute, check out our [CONTRIBUTING.md](CONTRIBUTING.md).
 
