@@ -27,7 +27,6 @@ export async function handleGenerate({ dist, configPath }) {
       process.exit(2);
     }
   }
-  console.log(newConfig);
   const css = generateCSS(newConfig);
 
   try {

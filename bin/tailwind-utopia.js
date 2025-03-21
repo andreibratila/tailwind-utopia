@@ -19,7 +19,6 @@ async function main() {
 
   // Parse arguments with key=value
   const options = { ...defaultOptions, ...parseArgs(args) };
-  console.log("Bin.tailwind-utipiajs", options);
 
   switch (command) {
     case "generate":
