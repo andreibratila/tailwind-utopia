@@ -1,4 +1,4 @@
-# Tailwind Utopia Library V4
+# Tailwindcss V4 Utopia Library 
 
 A Tailwind CSS library that implements Utopia's fluid responsive design methodology, providing smooth, responsive typography and spacing without breakpoints.
 
