@@ -1,7 +1,7 @@
 {
   "name": "@andreibratila/tailwind-utopia",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Tailwindcss v4 library for fluid typography and spacing with Utopia",
   "type": "module",
   "bin": {
