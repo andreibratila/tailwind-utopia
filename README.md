@@ -107,22 +107,18 @@ The spacing scale works similarly to typography, providing fluid values for marg
 ## Usage
 
 ### Typography
-
-html
-
+```
 <h1 class="text-{prefix(optional}sm">Large Fluid Heading</h1>
 <p class="text-fs-sm">Body text that scales smoothly</p>
 <small class="text-sm">Smaller text</small>
-
+```
 ### Spacing
-
-html
-
+```
 <div class="mb-{prefix(optional}xs">
   <h2 class="mb-fs-xs">Title</h2>
   <p class="mb-xs">Content</p>
 </div>
-
+```
 ## CLI Commands
 
 The plugin includes a CLI with the following commands:
