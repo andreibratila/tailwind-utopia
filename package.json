@@ -7,9 +7,6 @@
   "bin": {
     "tailwind-utopia": "./bin/tailwind-utopia.js"
   },
-  "scripts": {
-    "postinstall": "node postinstall.js || exit 0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/andreibratila/tailwind-utopia"
