@@ -12,15 +12,15 @@ A Tailwind CSS library that implements Utopia's fluid responsive design methodol
 
 ## Installation
 
-Project instalation
+### Project installation
 
 ```
-npm install -D @andreibratila/tailwind-utopia
+npm install --save-dev @andreibratila/tailwind-utopia
 ```
 
 or
 
-Global instalation
+### Global installation
 
 ```
 npm install -g @andreibratila/tailwind-utopia
