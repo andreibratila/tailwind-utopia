@@ -112,7 +112,6 @@ export default {
     "-scroll-ml": ["scroll-margin-left"],
     "-scroll-ms": ["scroll-margin-inline-start"],
     "-scroll-me": ["scroll-margin-inline-end"],
-
     "scroll-p": ["scroll-padding"],
     "scroll-px": ["scroll-padding-left", "scroll-padding-right"],
     "scroll-py": ["scroll-padding-top", "scroll-padding-bottom"],
