@@ -1,14 +1,14 @@
 {
   "name": "@andreibratila/tailwind-utopia",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Tailwindcss v4 library for fluid typography and spacing with Utopia",
   "type": "module",
   "bin": {
     "tailwind-utopia": "./bin/tailwind-utopia.js"
   },
   "scripts": {
-    "postinstall": "if [ \"$npm_config_dev\" != \"true\" ]; then echo '⚠️  It is recommended to install this package as a devDependency: npm install --save-dev @andreibratila/tailwind-utopia'; fi"
+    "postinstall": "node postinstall.js || exit 0"
   },
   "repository": {
     "type": "git",
