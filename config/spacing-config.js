@@ -39,16 +39,6 @@ export default {
   border: {
     "border-spacing": [],
   },
-  // slide: {
-  //   "slide-in-from-top": ["--tw-enter-translate-y"],
-  //   "slide-in-from-bottom": ["--tw-enter-translate-y"],
-  //   "slide-in-from-right": ["--tw-enter-translate-x"],
-  //   "slide-in-from-left": ["--tw-enter-translate-x"],
-  //   "slide-out-to-top": ["--tw-exit-translate-y"],
-  //   "slide-out-to-bottom": ["--tw-exit-translate-y"],
-  //   "slide-out-to-right": ["--tw-exit-translate-x"],
-  //   "slide-out-to-left": ["--tw-exit-translate-x"],
-  // },
   gap: {
     gap: ["gap"],
     "gap-x": ["column-gap"],
