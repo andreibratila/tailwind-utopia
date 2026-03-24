@@ -9,7 +9,7 @@
     "./cli": "./src/cli.js"
   },
   "bin": {
-    "tailwind-utopia": "./bin/tailwind-utopia.js"
+    "tailwind-utopia": "bin/tailwind-utopia.js"
   },
   "files": [
     "bin",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/andreibratila/tailwind-utopia"
+    "url": "git+https://github.com/andreibratila/tailwind-utopia.git"
   },
   "engines": {
     "node": ">=20.0.0"
