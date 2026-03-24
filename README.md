@@ -1,198 +1,267 @@
-# Tailwindcss V4 Utopia Library
+# tailwind-utopia
 
-A Tailwind CSS library that implements Utopia's fluid responsive design methodology, providing smooth, responsive typography and spacing without breakpoints.
+`tailwind-utopia` is a v4-native generator for fluid typography and spacing inspired by Utopia.
 
-## Features
+It does NOT ship a legacy Tailwind JS plugin. Instead, it reads a project-level `tailwind-utopia.config.js`, generates a CSS file, and Tailwind CSS v4 consumes that CSS with `@import`.
 
-- 🎯 **Fluid Typography**: Text sizes that scale smoothly between viewport sizes
-- 📏 **Fluid Spacing**: Responsive spacing utilities that adapt to screen size
-- 🎨 **Tailwind Integration**: Seamless integration with Tailwind CSS
-- ⚡ **Performance**: Zero runtime overhead, pure CSS solution
-- 🛠️ **Customizable**: Flexible configuration for your design needs
+That config file is the generator contract and the project-level source of truth.
 
-## Installation
+## What it generates
 
-### Project installation
+- Internal runtime variables in `:root`
+- Public utilities via `@utility`
+- Fluid text steps like `text-fluid-base`, `text-fluid-3xl`
+- Fluid spacing utilities like `mt-fluid-sm`, `px-fluid-lg`, `gap-fluid-xs`, `space-y-fluid-sm-md`
+- Contiguous spacing pairs by default, plus optional custom pairs
 
-```
+## Install
+
+```bash
 npm install --save-dev @andreibratila/tailwind-utopia
 ```
 
-or
+## Tailwind v4 flow
 
-### Global installation
+1. Create the generator config:
 
-```
-npm install -g @andreibratila/tailwind-utopia
-```
-
-## Quick Start
-
-1. Use the CLI to generate a config file:
-
-```
+```bash
 npx tailwind-utopia config
 ```
 
-I recomend use prefix in configFile example: "fs-"
+2. Generate the CSS file:
 
-2. Create the css
-
-```
+```bash
 npx tailwind-utopia generate
 ```
 
-with flags if you want to read de config file
+3. Import the generated CSS from your main Tailwind stylesheet:
 
-```
-npx tailwind-utopia generate configPath=./src/configs
-```
-
-3. Import the css file in your tailwind css file:
-
-```
-example: global.css
-
+```css
 @import "tailwindcss";
 @import "./tailwind-utopia.css";
-... other css files / configurations
 ```
 
-4. Start using fluid utilities in your HTML:
+4. Use the utilities in markup:
 
+```html
+<h1 class="text-fluid-4xl mb-fluid-lg">Fluid heading</h1>
+<div class="px-fluid-sm md:px-fluid-lg">Responsive content</div>
+<section class="space-y-fluid-sm-md">...</section>
+<div class="-space-x-fluid-xs-lg">...</div>
 ```
-<h1 class="text-fs-2xl mb-fs-l">
-  Fluid Typography
-</h1>
+
+## CLI
+
+```bash
+tailwind-utopia config [--out path]
+tailwind-utopia generate [--config path] [--out path] [--stdout]
 ```
 
-## Configuration
+Examples:
 
-The library uses a configuration file (tailwind-utopia.config.json) to define your fluid typography and spacing scales. You can generate a default configuration using:
-
-bash
+```bash
 npx tailwind-utopia config
-
-### Typography Scale
-
-The typography scale is defined by:
-
-- Base size (min and max)
-- Scale ratio (min and max)
-- Custom steps
-
-Example configuration:
-
+npx tailwind-utopia generate
+npx tailwind-utopia generate --out ./src/styles/tailwind-utopia.css
 ```
-json
-{
-  "prefix": "",
-  "baseKey": "base",
-  "utopia": {
-    "minWidth": 320,
-    "minSize": 21,
-    "minScale": 1.2,
-    "maxWidth": 1140,
-    "maxSize": 24,
-    "maxScale": 1.25,
-    "fontSize": {
-      "xs": "inherit",
-      "sm": "inherit",
-      "base": 1.4,
-      "lg": 1.33,
-      "xl": 1.2,
-      "2xl": 1.11,
-      "3xl": 1,
-      "4xl": 1
-    },
-    "spacing": {
+
+## Config
+
+The generator reads `tailwind-utopia.config.js` from the current working directory by default. If the file is missing, built-in defaults are used.
+
+Recommended shape:
+
+```js
+import { defineConfig } from "@andreibratila/tailwind-utopia";
+
+export default defineConfig({
+  prefix: "fluid",
+  output: "./tailwind-utopia.css",
+  typography: {
+    minWidth: 320,
+    maxWidth: 1140,
+    minSize: 18,
+    maxSize: 20,
+    minScale: 1.2,
+    maxScale: 1.25,
+    baseStep: "base",
+    steps: {
+      xs: { lineHeight: 1.4 },
+      sm: { lineHeight: 1.45 },
+      base: { lineHeight: 1.5 },
+      lg: { lineHeight: 1.45 },
+      xl: { lineHeight: 1.3 },
+      "2xl": { lineHeight: 1.2 },
+      "3xl": { lineHeight: 1.1 },
+      "4xl": { lineHeight: 1 }
+    }
+  },
+  spacing: {
+    enabled: true,
+    scale: {
       "3xs": 0.25,
       "2xs": 0.5,
-      "xs": 0.75,
-      "sm": 1,
-      "md": 1.5,
-      "lg": 2,
-      "xl": 3,
+      xs: 0.75,
+      sm: 1,
+      md: 1.5,
+      lg: 2,
+      xl: 3,
       "2xl": 4,
       "3xl": 6
+    },
+    pairs: "contiguous",
+    customPairs: [],
+    utilities: {
+      m: ["margin"],
+      mx: ["margin-left", "margin-right"],
+      my: ["margin-top", "margin-bottom"],
+      mt: ["margin-top"],
+      mr: ["margin-right"],
+      mb: ["margin-bottom"],
+      ml: ["margin-left"],
+      "-m": ["margin"],
+      "-mx": ["margin-left", "margin-right"],
+      "-my": ["margin-top", "margin-bottom"],
+      "-mt": ["margin-top"],
+      "-mr": ["margin-right"],
+      "-mb": ["margin-bottom"],
+      "-ml": ["margin-left"],
+      p: ["padding"],
+      px: ["padding-left", "padding-right"],
+      py: ["padding-top", "padding-bottom"],
+      pt: ["padding-top"],
+      pr: ["padding-right"],
+      pb: ["padding-bottom"],
+      pl: ["padding-left"],
+      "space-x": [],
+      "space-y": [],
+      "-space-x": [],
+      "-space-y": [],
+      gap: ["gap"],
+      "gap-x": ["column-gap"],
+      "gap-y": ["row-gap"],
+      w: ["width"],
+      h: ["height"],
+      inset: ["top", "right", "bottom", "left"],
+      "inset-x": ["left", "right"],
+      "inset-y": ["top", "bottom"],
+      top: ["top"],
+      right: ["right"],
+      bottom: ["bottom"],
+      left: ["left"],
+      "-inset": ["top", "right", "bottom", "left"],
+      "-inset-x": ["left", "right"],
+      "-inset-y": ["top", "bottom"],
+      "-top": ["top"],
+      "-right": ["right"],
+      "-bottom": ["bottom"],
+      "-left": ["left"]
     }
   }
-}
-
+});
 ```
 
-### Spacing Scale
+Notes:
 
-The spacing scale works similarly to typography, providing fluid values for margins, padding, and gaps:
+- `defineConfig()` is optional at runtime, but useful as the canonical config wrapper.
+- The file generated by `tailwind-utopia config` imports `defineConfig` from `@andreibratila/tailwind-utopia`, so this package must be installed in the consuming project (usually as a dev dependency).
+- If you want zero wrapper friction, replace `defineConfig(...)` with a plain object export (`export default { ... }`).
+- `prefix` is normalized to a trailing `-`, so `fluid` becomes `fluid-` internally.
+- `typography.steps` replaces the default step map when you provide it.
+- `spacing.scale` replaces the default spacing scale when you provide it.
+- `spacing.pairs` only accepts `"contiguous"` or `false`.
+- `spacing.customPairs` is where you opt into non-contiguous pairs such as `"xs-lg"`.
+- `spacing.utilities` overrides or extends the built-in utility map; each value can be a string or an array of CSS properties.
 
-## Usage
+The `tailwind-utopia config` command writes this full contract to disk so the file stays explicit.
 
-!!! IMPORTANT!!!
-I recomend create prefix always example: "fs-"
+Plain-object alternative (no `defineConfig` import):
+
+```js
+export default {
+  prefix: "fluid",
+  output: "./tailwind-utopia.css",
+  // ...rest of your config
+};
+```
+
+Generated default config:
+
+```bash
+npx tailwind-utopia config
+```
 
 ### Typography
 
-```
-<h1 class="text-{prefix(optional}sm">Large Fluid Heading</h1>
-<p class="text-fs-sm">Body text that scales smoothly</p>
-<small class="text-sm">Smaller text</small>
+- `baseStep` decides which entry is the modular-scale origin.
+- Each step can override `min`, `max`, and `lineHeight`.
+- Step order comes from the object key order in `typography.steps`.
+- All numeric typography fields must be finite positive numbers.
+
+Example custom typography:
+
+```js
+export default {
+  typography: {
+    minSize: 16,
+    maxSize: 18,
+    minScale: 1.18,
+    maxScale: 1.3,
+    baseStep: "base",
+    steps: {
+      sm: { lineHeight: 1.5 },
+      base: { lineHeight: 1.6 },
+      lg: { lineHeight: 1.45 },
+      xl: { lineHeight: 1.25 },
+      hero: { min: 40, max: 72, lineHeight: 0.95 }
+    }
+  }
+};
 ```
 
 ### Spacing
 
-```
-<div class="mb-{prefix(optional}xs">
-  <h2 class="mb-fs-xs">Title</h2>
-  <p class="mb-xs">Content</p>
-</div>
-```
+- `scale` defines the named tokens.
+- `pairs: "contiguous"` generates adjacent pairs only.
+- `pairs: false` disables default pairs.
+- `customPairs` adds opt-in non-contiguous pairs.
+- `utilities` extends or overrides the default utility map.
+- Each `utilities` entry can be a single CSS property string or an array of CSS properties.
+- `false` or `null` can be used to drop a built-in utility from the resolved map.
 
-## CLI Commands
+Example with custom pairs:
 
-The library includes a CLI with the following commands:
-
-# Generate configuration file
-
-```
-npx tailwind-utopia config
-```
-
-# Generate CSS file
-
-```
-npx tailwind-utopia generate
-```
-
-# Display help
-
-```
-npx tailwind-utopia --help
+```js
+export default {
+  spacing: {
+    pairs: "contiguous",
+    customPairs: [
+      "xs-lg",
+      "sm-xl"
+    ]
+  }
+};
 ```
 
-## Contributing
+## Design choices
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- `:root` holds the runtime math and internal CSS variables
+- `@utility` exposes the public API Tailwind v4 can consume naturally
+- No blanket `@theme` export by default, to avoid polluting theme tokens unless that becomes a clear integration need
+- No legacy fallback CSS or Tailwind JS plugin layer
 
-## License
+## Programmatic API
 
-MIT License - see [LICENSE](LICENSE.md) for details.
-
-## Acknowledgements
-
-Inspired by [Utopia](https://utopia.fyi/), a methodology for fluid responsive design and @domchristie/tailwind-utopia plugin, [domchristie/tailwind-utopia](https://github.com/domchristie/tailwind-utopia).
-
+```js
+import { generateCss, generateCssFromFile, resolveConfig } from "@andreibratila/tailwind-utopia";
 ```
-Utopia: James Gilyead & Trys Mudford
-Original Tailwind Utopia plugin: Chris Pymm & CWS Digital
-Plugin I based my work on: Dom Christie
+
+Also available:
+
+```js
+import { defineConfig } from "@andreibratila/tailwind-utopia";
 ```
 
 ## Credits
 
-This project was created by [Andrei Florian Brătila](https://github.com/andreibratila), [andreiflorianbratila.com](https://andreibratila.com).
-
-Special thanks to all contributors who helped improve this library. If you’d like to contribute, check out our [CONTRIBUTING.md](CONTRIBUTING.md).
-
-By contributing to this project, you agree that your code will be licensed under the MIT License.
-
-Consider supporting this project by starring the repository or sponsoring via [GitHub Sponsors](https://github.com/sponsors/andreibratila).
+Inspired by Utopia and the earlier Tailwind Utopia plugin ecosystem.

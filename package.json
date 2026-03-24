@@ -1,12 +1,22 @@
 {
   "name": "@andreibratila/tailwind-utopia",
   "private": false,
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "A Tailwindcss v4 library for fluid typography and spacing with Utopia",
   "type": "module",
+  "exports": {
+    ".": "./src/index.js",
+    "./cli": "./src/cli.js"
+  },
   "bin": {
     "tailwind-utopia": "./bin/tailwind-utopia.js"
   },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/andreibratila/tailwind-utopia"
@@ -21,6 +31,10 @@
     "spacing",
     "fluid"
   ],
+  "scripts": {
+    "test": "node --test",
+    "test:generate": "node ./bin/tailwind-utopia.js generate --stdout"
+  },
   "release": {
     "branches": [
       "main"
@@ -37,6 +51,8 @@
     "tailwindcss": "^4"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "tailwindcss": "^4",
     "standard": "^17.1.0"
   }
 }
