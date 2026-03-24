@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
 import { generateCss, generateCssFromFile } from "../src/index.js";
 
 const execFileAsync = promisify(execFile);
@@ -74,7 +75,7 @@ test("generateCssFromFile renders importable CSS from tailwind-utopia.config.js"
 
 test("CLI generate --stdout works with a project config", async () => {
   const cwd = await mkdtemp(path.join(os.tmpdir(), "tailwind-utopia-cli-"));
-  const cliPath = path.resolve("/home/andrei/projects/tailwind-utopia-new/tailwind-utopia/bin/tailwind-utopia.js");
+  const cliPath = fileURLToPath(new URL("../bin/tailwind-utopia.js", import.meta.url));
 
   await writeFile(
     path.join(cwd, "tailwind-utopia.config.js"),
